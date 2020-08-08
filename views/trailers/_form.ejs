@@ -1,0 +1,114 @@
+<!--
+  Step 1: The form must be sharable between the new and edit views.
+-->
+<form
+  action="<%= (typeof actionPath === 'undefined') ? '/trailers' : actionPath %>"
+  ,
+  method="POST"
+>
+  <% if (typeof actionPath !== 'undefined') { %>
+  <input type="hidden" name="id" value="<%= formData.id %>" />
+  <% } %>
+
+  <div class="form-group">
+    <label for="trailerTitle">Title: </label>
+    <input
+      type="text"
+      name="trailerTitle"
+      class="form-control"
+      value="<%= formData.trailerTitle %>"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="genre">Genre: </label>
+    <select name="genre" class="form-control">
+      <option>Select Genre:</option>
+      <% for (let genre of genres) { %>
+        <option <%= (genre === formData.genre) && 'selected' %> value="<%= genre %>"><%= genre %></option>
+      <% } %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="rating">Rating: </label>
+    <select name="rating" class="form-control">
+      <option>Select Rating:</option>
+      <% for (let rating of ratings) { %>
+        <option <%= (rating === formData.rating) && 'selected' %> value="<%= rating %>"><%= rating %></option>
+      <% } %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description: </label>
+    <textarea name="description" class="form-control summernote">
+      <%= formData.description %>
+    </textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="l">Language: </label>
+    <input
+      type="text"
+      name="language"
+      class="form-control"
+      value="<%= formData.language %>"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="year">Year: </label>
+    <input
+      type="number"
+      name="year"
+      class="form-control"
+      value="<%= formData.year %>"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="videoType">Video Type: </label>
+    <select name="videoType" class="form-control">
+      <option>Select Video Type:</option>
+      <% for (let videoType of videoTypes) { %>
+        <option <%= (videoType === formData.videoType) && 'selected' %> value="<%= videoType %>"><%= videoType %></option>
+      <% } %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="favorites">Add to Favorites: </label>
+    <input
+      type="checkbox"
+      name="favorites"
+      class="form-control"
+      value="<%= formData.favorites = 1 %>"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="year">Episodes: </label>
+    <input
+      type="number"
+      name="episodes"
+      class="form-control"
+      value="<%= formData.episodes %>"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="image">Album Cover: </label>
+    <input
+      type="image"
+      name="image"
+      class="form-control"
+      value="<%= formData.image %>"
+    />
+  </div> 
+
+
+  <div class="form-group">
+    <button class="btn btn-dark">Submit</button>
+  </div>
+</form>

@@ -1,0 +1,67 @@
+<%- include ('../partials/header') %>
+
+<div class="container my-5">
+  <div class="card my-5">
+    <div class="card-header">
+      <h5 class="card-title">
+        Trailer for: <%= trailerInfo.user.fullname %>
+      </h5>
+    </div>
+
+    <div class="card-body">
+      <p class="card-text"></p>
+
+      <p>
+        Trailer: <%= trailerInfo.trailerTitle %>
+      </p>
+      <p>
+        Genre: <%= trailerInfo.genres %>
+      </p>
+      <p>
+        Rating: <%= trailerInfo.rating %>
+      </p>
+      <p>
+        Description: <%= trailerInfo.description %>
+      </p>
+      <p>
+        Language: <%= trailerInfo.language %>
+      </p>
+      <p>
+        Year: <%= trailerInfo.year %>
+      </p>
+      <p>
+        Video Type: <%= trailerInfo.videoType %>
+      </p>
+      <p>
+        Added to Favorites: <%= trailerInfo.favorites %>
+      </p>
+      <p>
+        Episodes: <%= trailerInfo.episodes %>
+      </p>
+      <p>
+        Album Cover: <%= trailerInfo.image %>
+      </p>
+    </div>
+
+    <div class="card-footer text-muted">
+      <a href="/trailers/<%= trailerInfo.id %>/edit"
+        ><i class="fa fa-edit">&nbsp;</i>Edit your Trailer</a
+      >
+      <br />
+      <form
+        class="form-inline"
+        action="/trailers/delete"
+        method="post"
+        onsubmit="return confirm('Are you sure you want to delete your trailer?');"
+      >
+        <input type="hidden" value="<%= trailerInfo.id %>" name="id" />
+        <button class="delete" type="submit">
+          <i class="fa fa-trash">&nbsp;</i>
+          Delete your Trailer
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include ('../partials/footer') %>

@@ -1,0 +1,59 @@
+html,
+body,
+div#root {
+  height: 100%;
+  width: 100%;
+}
+
+.reddin {
+  background-color: rgb(82, 123, 247) !important;
+  border: none !important;
+  font-weight: bold !important;
+  padding: 1em !important;
+}
+.reddin:hover {
+  background-color: #3e6df8e3 !important;
+  transition: 0.25s;
+}
+
+.home-cta {
+  background: url("/images/background.jpg");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  flex-direction: column;
+}
+
+.home-cta > h1 {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 3px rgba(45, 96, 252, 0.829);
+  font-size: 5rem;
+  text-align: center;
+  font-family: "Saira Stencil One", cursive;
+}
+
+.form-inline {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.form-inline > .delete {
+  border: none;
+  background: none;
+  color: #007bff;
+  margin: 0;
+  padding: 0;
+}
+
+.form-inline > .delete:hover {
+  color: #0056b3;
+}

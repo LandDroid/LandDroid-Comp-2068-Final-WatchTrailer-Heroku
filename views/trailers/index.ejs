@@ -1,0 +1,79 @@
+<!--
+  Step 1: This is your descretion how you would like to display data,
+  but you must list all the documents in your resource collection.
+-->
+<%- include ('../partials/header') %>
+
+<div class="container my-5">
+  <header>
+    <h1>Trailers Database</h1>
+  </header>
+
+  <hr />
+
+  <div class="content">
+    <% for (let trailer of trailerInfo) { %>
+    <div class="card my-5">
+      <div class="card-header">
+        <h5 class="card-title">
+          Saved Trailer for: <%= trailer.user.firstName %> <%=
+          trailer.user.lastName %>
+        </h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          Your Trailer is:
+          <strong><%= trailer.trailerTitle %></strong>
+        </p>
+        <p>
+          Genre: <%= trailer.genre %>
+        </p>
+        <p>
+          Rating: <%= trailer.rating %>
+        </p>
+        <p>
+          Description: <%= trailer.description %>
+        </p>
+        <p>
+          Language: <%= trailer.language %>
+        </p>
+        <p>
+          Year: <%= trailer.year %>
+        </p>
+        <p>
+          Video Type: <%= trailer.videoType %>
+        </p>
+        <p>
+          Added to Favorites: <%= trailer.favorites %>
+        </p>
+        <p>
+          Episodes: <%= trailer.episodes %>
+        </p>
+        <p>
+          Album Cover: <%= trailer.image %>
+        </p>
+      </div>
+      <div class="card-footer text-muted">
+        <a href="/trailers/<%= trailer.id %>/edit"
+          ><i class="fa fa-edit">&nbsp;</i>Edit your Trailer</a
+        >
+        <br />
+        <form
+          class="form-inline"
+          action="/resources/delete"
+          method="post"
+          onsubmit="return confirm('Are you sure you want to cancel your reservation?');"
+        >
+          <input type="hidden" value="<%= trailer.id %>" name="id" />
+          <button class="delete" type="submit">
+            <i class="fa fa-trash">&nbsp;</i>
+            Delete your Trailer
+          </button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
+
+<%- include ('../partials/footer') %>

@@ -1,0 +1,18 @@
+<%- include ('../partials/header') %>
+
+<header class="home-cta">
+  <h1 style="color: '#c0392b';" class="mb-5">Let's Watch Trailers</h1>
+
+  <% if (authorized) {%>
+  <a class="btn btn-primary reddin" href="/trailers/new" role="button"
+    >Add a Trailer</a
+  >
+  <%} else { %>
+  <a class="btn btn-primary reddin" href="/register" role="button">
+    Register to Create a Trailer</a
+  >
+  <% } %>
+</header>
+
+<%- include ('../partials/footer') %>
+<a class="btn btn-primary" href="#" role="button">Link</a>
